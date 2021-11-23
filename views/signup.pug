@@ -1,1 +1,20 @@
-h1 Esto es signup
+doctype html
+html
+head 
+link(rel="stylesheet", href="./stylesheets/stylesingUp.css")
+body 
+ p Welcome to #{title}
+    .container
+        form.small-form(action="/auth/login", method="post")
+            h1 Login
+            div
+            .form-group
+                label.control-label Nombre<br>
+                input(type="text", name="name" required).form-control
+            .form-group
+                label.control-label Email<br>
+                input(type="email", name="email" required).form-control
+            .form-group
+                label.control-label Password<br>
+                input(type="password", name="password" required).form-control
+            button.btn.btn-primary ENVIAR
