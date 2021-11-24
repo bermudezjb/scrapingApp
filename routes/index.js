@@ -9,6 +9,8 @@ router.get('/signup', controller.signup);
 
 router.get('/login', controller.login);
 
+router.get('/recoverpsw', controller.recoverpsw);
+
 router.get('/favorites', controller.favorites);
 
 router.get('/profile', controller.profile);
