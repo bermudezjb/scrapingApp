@@ -1,1 +1,22 @@
-h1 esto es login
+doctype html
+html
+head 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+link(rel="stylesheet", href="./stylesheets/stylesingUp.css")
+body 
+    .container
+        form.small-form(action="/auth/login", method="post")
+            h1 Cursalia
+            div.form
+                div.title Bienvenido 
+                .subtitle Logueate
+                .divf
+                    input#lastname.input(type='text' placeholder='Email')
+                    .cut.cut-short
+                    label.placeholder(for='lastname') 
+                .divf
+                    input#email.input(type='password' placeholder='Contraseña')
+                    .cut.cut-short
+                    label.placeholder(for='email')
+                    button.submit(type='text') Login
+                    <a href="./recoverpsw">Recuperar contraseña</a>

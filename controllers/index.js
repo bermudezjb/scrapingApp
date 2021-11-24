@@ -20,6 +20,10 @@ const dashboard = (req, res) => {
     res.render('dashboard', { title: 'Express' });
 }
 
+const recoverpsw = (req, res) => {
+    res.render('recoverpsw', { title: 'Express' });
+}
+
 module.exports  = {
     landing,
     signup,
@@ -27,5 +31,6 @@ module.exports  = {
     favorites,
     profile,
     users,
-    dashboard
+    dashboard,
+    recoverpsw
 }
