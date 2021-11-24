@@ -1,12 +1,19 @@
 doctype html
-head
-  link(rel="stylesheet", href="./stylesheets/style.css")
-  title aprendiendo
-ul
-  li menu hamburguesa
-  li Logo
-h3 Bienvenidos a tu web de cursos
-.containerSearch
-  input.text(placeholder='ingresar tu busqueda aqui' name='busqueda')
-  input(type='button' value='Buscar')
-.showResults
+html
+head 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+link(rel="stylesheet", href="./stylesheets/stylesingUp.css")
+body 
+    .container
+        form.small-form(action="/auth/login", method="post")
+            h1 Cursalia
+            div.form
+                div.title Bienvenido 
+                .subtitle Que quieres aprender hoy?
+                .divf
+                    input#buscador.input(type='text' placeholder='curso')
+                    .cut.cut-short
+                    label.placeholder(for='curso') 
+                    button.submit(type='text') Buscar curso
+                .divf
+
