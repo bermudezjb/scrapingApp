@@ -54,7 +54,6 @@ const getcurselike  = async (a) => {
     try{
         if(1==1){
             data = await User.find(({name: { $regex: '.*' + a + '.*',$options:'i' } }), '-__v');
-            
             console.log(data)
         }
     }catch(err){
