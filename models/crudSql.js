@@ -7,7 +7,7 @@ const pool = new Pool({
     password: 'F1PJGENL8Q-hcXCjVKklydwOP--I89WG'
 //Apikey : 613a2d25-7e54-47a5-a1b4-0b2ca41b0cfd (por si se debe usar)
 })
-
+ç
 //1--Hago el insert de los nuevos usuarios (hay que adaptar el modelo entry para recoger los paramtros del formulario)
 // entry --> {"noticia 1","va a nevar","sucesos"}
 const createEntry = async () => {
