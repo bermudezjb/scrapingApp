@@ -1,5 +1,4 @@
 const mongoose = require('../utils/mgBBDD')
-const body = require('body-parser')
 const express = require('express')
 const app = express()
 app.use(express.json())
