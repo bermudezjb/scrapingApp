@@ -6,6 +6,7 @@ let jwt = require('jsonwebtoken')
 const accessTokenSecret = 'somerandomaccesstoken';
 const refreshTokenSecret = 'somerandomstringforrefreshtoken';
 let refreshTokens = [];
+let authorization = require('../middleware/authorization')
 
 
 /* GET home page. */
@@ -23,10 +24,9 @@ router.get('/profile', controller.profile);
 
 router.get('/users', controller.users);
 
-router.get('/dashboard', controller.dashboard);
+router.get('/dashboard',authorization, controller.dashboard);
 
 module.exports = router;
-
 
 
 router.post('/login', (req, res) => {
@@ -43,14 +43,24 @@ router.post('/login', (req, res) => {
         const refreshToken = jwt.sign({ username: user.username, role: user.role }, refreshTokenSecret);
 
         refreshTokens.push(refreshToken);
+        return res
+    .cookie("access_token", accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+    })
+    .status(200)
+    .json({ message: "Logged in successfully 😊 👌" });
+        
 
+
+    } else {
+        res.send('Username or password incorrect');
+        
+    }
         res.json({
             accessToken,
             refreshToken
         });
-    } else {
-        res.send('Username or password incorrect');
-    }
 });
 
 
