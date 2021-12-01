@@ -54,8 +54,6 @@ router.post('/login', (req, res) => {
     })
     .status(200)
     .json({ message: "Logged in successfully 😊 👌" });
-        
-
 
     } else {
         res.send('Username or password incorrect');

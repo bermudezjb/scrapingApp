@@ -1,12 +1,19 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const { modelNames } = require('mongoose');
-
+const crudSql=require('../models/crudSql')
 const app = express();
 
 const accessTokenSecret = 'somerandomaccesstoken';
 const refreshTokenSecret = 'somerandomstringforrefreshtoken';
 
+
+ const usersget = crudSql.getAllUserSistem ()
+
+ const users = usersget[0]
+
+
+/*
 
 const users = [
     {
@@ -19,6 +26,7 @@ const users = [
         role: 'member'
     }
 ]
+*/
 let refreshTokens = [];
 
 app.use(express.json());
@@ -41,6 +49,8 @@ const authenticateJWT = (req, res, next) => {
         res.sendStatus(401);
     }
 }
+
+//users ()
 
 module.exports = users;
 

@@ -4,7 +4,6 @@ RESTRUCTUCTURADO DE CARPETAS : :
 Hemos decidido que el orden de aplicacion será UTILS/MODELS/CONTROLERS/ROUTES/: 
 
 Pasos seguidos : 
-
 1--UTILS las conexiones a las BBDD de MongoDb y Poolstgrade.
 1.1--Aqui creamos las conexiones y exportamos los modulos de cada conexion para utilizar en otras rutas/ficheros
 
