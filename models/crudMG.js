@@ -1,6 +1,8 @@
-const mongoose = require('../utils/mgBBDD')
+const mongoose = require('../utils/mgBBDD')//Importo la conexion de la BBDD 
 const express = require('express')
 const app = express()
+
+
 app.use(express.json())
 
 //AQUI REALIZARE LOS CRUD INICIALES DE MONGO 
@@ -42,6 +44,7 @@ insertScrap.save(function(err){
 
 
 
+
 //HAGO GET CURSO Y LE APLICO FUNCION PARA QUE LE DE IGUAL M/m Y BUSQUE POR PALABRAS DENTRO DEL CURSO
 const getcurselike  = async (a) => {
     console.log("*******************");
@@ -66,9 +69,15 @@ const getcurselike  = async (a) => {
 
 //Prueba de llamada a cursos que contienen HTML
 
-getcurselike('CSS').then(data=>console.log(data))
+//getcurselike('CSS').then(data=>console.log(data))
 
 //Exporto el modulo para utilizar en otros scripts.
 
-module.exports = User;
+const entriesmg = {
+    getcurselike,
+    User
+}
 
+getcurselike("anGUlar");
+
+module.exports = entriesmg;

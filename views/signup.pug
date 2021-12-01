@@ -5,21 +5,21 @@ head
 link(rel="stylesheet", href="./stylesheets/stylesingUp.css")
 body 
     .container
-        form.small-form(action="/auth/login", method="post")
+        form.small-form(action="/signup", method="post")
             h1 Cursalia
             div.form
                 div.title Bienvenido 
                 .subtitle Registrate
                 .divf
-                    input#firstname.input(type='text' placeholder='Nombre')
+                    input#firstname.input(type='text' name='firstname' placeholder='Nombre')
                     .cut.cut-short
                     label.placeholder(for='firstname') 
                 .divf
-                    input#lastname.input(type='text' placeholder='Email')
+                    input#email.input(type='text' name='email' placeholder='Email')
                     .cut.cut-short
                     label.placeholder(for='Email') 
                 .divf
-                    input#email.input(type='password' placeholder='Contraseña')
+                    input#psw.input(type='password'  name='password' placeholder='Contraseña')
                     .cut.cut-short
                     label.placeholder(for='psw') 
                     button.submit(type='text') Registrarme
