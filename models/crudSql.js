@@ -1,23 +1,19 @@
-//1--Una vez instalado pg via node llamo al require del modulo
-const { Pool } = require('pg');
-const pool = new Pool({
-    user: 'eclkveco',
-    host: 'tai.db.elephantsql.com',
-    database: 'eclkveco',
-    password: 'F1PJGENL8Q-hcXCjVKklydwOP--I89WG'
-//Apikey : 613a2d25-7e54-47a5-a1b4-0b2ca41b0cfd (por si se debe usar)
-})
-ç
+//1--Importo de Utils la conexion 
+const pool = require('../utils/sqlBBDD')
+
 //1--Hago el insert de los nuevos usuarios (hay que adaptar el modelo entry para recoger los paramtros del formulario)
 // entry --> {"noticia 1","va a nevar","sucesos"}
-const createEntry = async () => {
-    //const {title,content,email,category} = entry;
+const createEntry = async (insert) => {
+
+    const {username,sname,email,pasw,curse,rol} = insert;
+
     let client,result;
+    
     try{
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(`INSERT INTO usuarios ("Nombre","Apellido","email","pasw","favoritos","rol") 
+        const data = await client.query(`INSERT INTO usuarios ("nombre","apellido","email","psw","favoritos","rol") 
                                          VALUES ($1,$2,$3,$4,$5,$6)`
-                                         ,['Juajo','Martin','juanjo@gmail.com','4545424','Scrapin','user'])
+                                         ,[username,sname,email,pasw,curse,rol])
                                        // ,[title,content,email,category])     
                 result = data.rowCount
                 console.log("El insert se ha credo correctamente")

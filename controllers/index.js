@@ -1,9 +1,11 @@
 const landing = (req, res) => {
     res.render('index', { title: 'Express' });
   }
+
 const signup = (req, res) => {
     res.render('signup', { title: 'Express' });
 }
+
 const login = (req, res) => {
     res.render('login', { title: 'Express' });
 }

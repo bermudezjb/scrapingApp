@@ -7,6 +7,7 @@ const accessTokenSecret = 'somerandomaccesstoken';
 const refreshTokenSecret = 'somerandomstringforrefreshtoken';
 let refreshTokens = [];
 let authorization = require('../middleware/authorization')
+let controllerSql = require('../controllers/ctrlSql')
 
 
 /* GET home page. */
@@ -28,8 +29,11 @@ router.get('/dashboard',authorization, controller.dashboard);
 
 module.exports = router;
 
+router.post('/signup',controllerSql.dataentry); 
+
 
 router.post('/login', (req, res) => {
+
     // read username and password from request body
     const { username, password } = req.body; 
     console.log({ username, password })
@@ -44,7 +48,7 @@ router.post('/login', (req, res) => {
 
         refreshTokens.push(refreshToken);
         return res
-    .cookie("access_token", accessToken, {
+      .cookie("access_token", accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
     })
