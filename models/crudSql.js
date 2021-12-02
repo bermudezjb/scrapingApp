@@ -65,7 +65,24 @@ const getAllUserSistem = async () => {
     let client,result;
     try{
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(`SELECT nombre as username,psw as password,rol as role FROM usuarios where nombre is not null;`)
+        const data = await client.query(`SELECT nombre as username,psw as password,rol as role FROM usuarios where nombre is not null and rol<>'Admin';`)
+        result = data.rows
+        console.log(result)
+    }catch(err){
+        console.log(err);
+        throw err;
+    }finally{
+        client.release();    
+    }
+    return result
+}
+
+
+const getATrueAdmin = async () => {
+    let client,result;
+    try{
+        client = await pool.connect(); // Espera a abrir conexion
+        const data = await client.query(`SELECT nombre as username,psw as password,rol as role FROM usuarios where rol='Admin';`)
         result = data.rows
         console.log(result)
     }catch(err){
@@ -79,11 +96,13 @@ const getAllUserSistem = async () => {
 
 
 
+
 const entries = {
     getEntriesByEmail,
     getAllEntries,
     createEntry,
-    getAllUserSistem
+    getAllUserSistem,
+    getATrueAdmin
 }
 
 
