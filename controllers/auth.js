@@ -8,25 +8,6 @@ const accessTokenSecret = 'somerandomaccesstoken';
 const refreshTokenSecret = 'somerandomstringforrefreshtoken';
 
 
- const usersget = crudSql.getAllUserSistem ()
-
- const users = usersget[0]
-
-
-/*
-
-const users = [
-    {
-        username: 'Christian',
-        password: '1234',
-        role: 'admin'
-    }, {
-        username: 'bornando',
-        password: '4321',
-        role: 'member'
-    }
-]
-*/
 let refreshTokens = [];
 
 app.use(express.json());
