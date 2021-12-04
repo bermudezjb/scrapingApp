@@ -27,3 +27,22 @@ dataentry es la exportacion del modulo creado en CONTROLLERS/ctrlSwql
 
 
 
+function(req,res,next) {
+/*Haseo de la contraseña */
+const BCRYPT_SALT_ROUNDS = 12 ;
+const usermail= req.body.email;
+const password= req.body.password;
+
+bcrypt.hash(password, BCRYPT_SALT_ROUNDS)
+    .then(function(hashePassword) {
+
+return usersDB.saveUser(usermail,hashePassword);
+    })
+    .then(function() {
+        res.send();
+    })
+    .catch(function(error){
+    console.log("error Saving User")
+    console.log(error)
+    next();
+    })
