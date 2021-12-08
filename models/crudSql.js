@@ -5,9 +5,8 @@ const pool = require('../utils/sqlBBDD')
 //(hay que adaptar el modelo entry para recoger los paramtros del formulario)
 // entry --> {"noticia 1","va a nevar","sucesos"}
 const createEntry = async (insert) => {
-
     const {username,sname,email,pasw,curse,rol} = insert;
-
+    
     let client,result;
     
     try{
@@ -66,7 +65,7 @@ const getAllUserSistem = async () => {
     let client,result;
     try{
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(`SELECT nombre as username,psw as password,rol as role FROM usuarios where nombre is not null and rol<>'Admin';`)
+        const data = await client.query(`SELECT nombre as username,psw as password,rol as role, email , id FROM usuarios where nombre is not null and rol<>'Admin';`)
         result = data.rows
         console.log(result)
     }catch(err){
@@ -101,7 +100,7 @@ const getATrueAdmin = async () => {
     let client,result;
     try{
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(`SELECT nombre as username,psw as password,rol as role FROM usuarios where rol='Admin';`)
+        const data = await client.query(`SELECT nombre as username,psw as password,rol as role,email, id FROM usuarios where rol='Admin';`)
         result = data.rows
         console.log(result)
     }catch(err){
@@ -114,6 +113,28 @@ const getATrueAdmin = async () => {
 }
 
 
+const updateUser = async (updateUser) => {
+    const {username,email,id} = updateUser;
+    
+    let client,result;
+    
+    try{
+        client = await pool.connect(); // Espera a abrir conexion
+        const data = await client.query(`update usuarios set nombre=$1, email=$2  where id=$3`
+                                         ,[username,email,id])
+                                        
+                result = data.rowCount
+                console.log("El Update se hizo correctamente")
+                }catch(err){
+                    console.log(err);
+                    throw err;
+                }finally{
+                    client.release();    
+                }
+                return result
+}
+
+
 
 
 const entries = {
@@ -122,7 +143,8 @@ const entries = {
     createEntry,
     getAllUserSistem,
     getATrueAdmin,
-    getEmailRecovery
+    getEmailRecovery,
+    updateUser
 }
 
 
