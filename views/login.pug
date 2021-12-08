@@ -5,19 +5,10 @@ head
 link(rel="stylesheet", href="./stylesheets/stylesingUp.css")
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 body 
-.mobile-container
-  .topnav
-    a.active(href='#home') Cursalia
-    #myLinks
-      a(href='#news') News
-      a(href='#contact') Contact
-      a(href='#about') About
-    a.icon(href='javascript:void(0);' onclick='myFunction()')
-      i.fa.fa-bars
     .container
     form.small-form(action="/login", method="post")
             div.form
-                div.title Bienvenido 
+                div.title Bienvenido a Cursalia
                 .subtitle Logueate
                 .divf
                     input#lastname.input(type='text' placeholder='Email' name='username')
@@ -28,15 +19,5 @@ body
                     .cut.cut-short
                     label.placeholder(for='email')
                     button.submit(type='text') Login
-                    <a href="./recoverpsw">Recuperar contraseña</a>
-
-                    
-script.
-  function myFunction() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-  x.style.display = "none";
-  } else {
-  x.style.display = "block";
-  }
-  }
+                    <br><br><a href="./recoverpsw"><br>Recuperar contraseña</a>
+                   

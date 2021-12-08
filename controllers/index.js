@@ -26,6 +26,11 @@ const recoverpsw = (req, res) => {
     res.render('recoverpsw', { title: 'Express' });
 }
 
+const index = (req, res) => {
+    res.render('index', { title: 'Express' });
+}
+
+
 module.exports  = {
     landing,
     signup,
@@ -34,5 +39,6 @@ module.exports  = {
     profile,
     users,
     dashboard,
-    recoverpsw
+    recoverpsw,
+    index
 }

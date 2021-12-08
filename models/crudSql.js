@@ -1,7 +1,8 @@
 //1--Importo de Utils la conexion 
 const pool = require('../utils/sqlBBDD')
 
-//1--Hago el insert de los nuevos usuarios (hay que adaptar el modelo entry para recoger los paramtros del formulario)
+//1--Hago el insert de los nuevos usuarios 
+//(hay que adaptar el modelo entry para recoger los paramtros del formulario)
 // entry --> {"noticia 1","va a nevar","sucesos"}
 const createEntry = async (insert) => {
 
@@ -33,7 +34,7 @@ const getEntriesByEmail = async (email) => {
     try{
         client = await pool.connect(); // Espera a abrir conexion
         const data = await client.query(`
-                SELECT * from usuarios where email=$1;`,[email])
+                SELECT email as useremail, psw from usuarios where email=$1;`,[email])
         result = data.rows
     }catch(err){
         console.log(err);
@@ -78,6 +79,24 @@ const getAllUserSistem = async () => {
 }
 
 
+const getEmailRecovery = async (email) => {
+    let client,result;
+    try{
+        client = await pool.connect(); // Espera a abrir conexion
+        const data = await client.query(`SELECT email as username FROM usuarios where email=$1;`,[email])
+        result = data.rows
+        console.log(result)
+    }catch(err){
+        console.log(err);
+        throw err;
+    }finally{
+        client.release();    
+    }
+    return result
+}
+
+
+
 const getATrueAdmin = async () => {
     let client,result;
     try{
@@ -102,7 +121,8 @@ const entries = {
     getAllEntries,
     createEntry,
     getAllUserSistem,
-    getATrueAdmin
+    getATrueAdmin,
+    getEmailRecovery
 }
 
 
