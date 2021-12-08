@@ -24,7 +24,3 @@ return await crudSql.createEntry(insert)
 4--RUTES, aqui defino que la vista/ejecucion SingUp sera post y accedera a controlers, funcion dataentry (Creara el objeto @insert ) que asu vez se lo pasara a la funcion create () de MODELS/crudSql
 router.post('/signup',controllerSql.dataentry); 
 dataentry es la exportacion del modulo creado en CONTROLLERS/ctrlSwql
-
-
-
-
