@@ -1,1 +1,28 @@
-h1 Esto es Dashboard
+doctype html
+html
+head 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+link(rel="stylesheet", href="./stylesheets/styleDashboard.css")
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+body
+ .container
+  form.small-form(action='/auth/login' method='post')
+    h1 Cursalia
+    .form
+      .title Welcome 
+      .subtitle Dashboard
+      .divf
+        p#box1.input1(type='text') 300
+        p#box1.input(type='text') User                 
+      .divf
+        p#box2.input1(type='text') 50
+        p#box2.input(type='text') Userconnect        
+      .divf
+        p#box3.input1(type='text') 20
+        p#box3.input(type='text') Favorites        
+      .divf
+        p#box3.input1(type='text') 1200
+        p#box3.input(type='text') Courses        
+      .divf
+        input.submit(type='button' value='Actualizar' onclick='location.reload()')
+
