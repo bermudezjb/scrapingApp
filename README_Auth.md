@@ -7,6 +7,9 @@ let users = require('../controllers/auth') que es la exportacion del modulo auth
 Despues hago la funcion para compararlo segun el dato que he traido del user del mudulo indicado
 const user = users.find(u => { return u.username === username && u.password === password }); 
 
+3*//Haseo de contraseña y comprobacion de login/pass deshaseada
+1--He realizado la instalacion del modulo bycriptjs
+
 
 
 
