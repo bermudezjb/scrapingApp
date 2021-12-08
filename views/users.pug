@@ -4,17 +4,18 @@ head
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 link(rel="stylesheet", href="./stylesheets/stylesingUp.css")
 body 
-    .container
-        form.small-form(action="/users", method="post")
+    form.small-form(action="/users", method="Post")
             div.form
                 div.title Mi perfil 
-                .subtitle mis datos Actuales
+                .subtitle mis datos Actuales 
                 .divf
-                    input#firstname.input(type='text' name='actualfirstname' placeholder='Nombre')
-                    label.placeholder(for='firstname') 
+                    input#firstname.input(type='text' name='updateusername' placeholder = username required)
+                    label.placeholder(for='firstname')  
                 .divf
-                    input#email.input(type='text' name='email' placeholder='Email')
-                    label.placeholder(for='Email') 
+                    input#email.input(type='email' name='updateemail' placeholder= email required)
+                    label.placeholder(for='Email')
+                    input#id.input(type='email' name='id' value= id readonly )
                 .div
                     button.submit(type='text') Actualizar
+                form.small-form(action="/index", method="Get")
                     button.submit(type='text') Descartar

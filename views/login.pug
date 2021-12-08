@@ -6,18 +6,17 @@ link(rel="stylesheet", href="./stylesheets/stylesingUp.css")
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 body 
     .container
-    form.small-form(action="/login", method="post")
-            div.form
-                div.title Bienvenido a Cursalia
-                .subtitle Logueate
-                .divf
-                    input#lastname.input(type='text' placeholder='Email' name='username')
-                    .cut.cut-short
-                    label.placeholder(for='lastname') 
-                .divf
-                    input#email.input(type='password' placeholder='Contraseña' name= 'password')
-                    .cut.cut-short
-                    label.placeholder(for='email')
-                    button.submit(type='text') Login
-                    <br><br><a href="./recoverpsw"><br>Recuperar contraseña</a>
-                   
+        form.small-form(action="/login", method="post")
+                div.form
+                    div.title Bienvenido a Cursalia
+                    .subtitle Logueate
+                    .divf
+                        input#lastname.input(type='text' placeholder='Email' name='username')
+                        .cut.cut-short
+                        label.placeholder(for='lastname') 
+                    .divf
+                        input#email.input(type='password' placeholder='Contraseña' name= 'password')
+                        .cut.cut-short
+                        button.submit(type='text') Login
+                        <br><br><a href="./recoverpsw"><br>Recuperar contraseña</a>
+                    

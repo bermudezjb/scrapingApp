@@ -31,13 +31,20 @@ router.get('/profile', controller.profile);
 
 router.get('/users', controller.users);
 
-router.get('/dashboard',authorization, controller.dashboard);
+router.get('/dashboard', controller.dashboard);
 
 router.get('/admin',authorizationAdmin, controller.dashboard);
 
 router.post('/signup',controllerSql.dataentry); 
 
 router.get('/index',authorization,controller.index); 
+
+router.get('/panelAdmin',controller.panelAdmin); 
+
+router.get('/createCourse',controller.createCourse); 
+
+router.post('/users', controllerSql.updateDataUser);
+
 
 
 router.post('/logout', (req, res) => {
@@ -54,9 +61,6 @@ router.post('/logout', (req, res) => {
 })
 
 
-
-
-
 router.post('/recoverpsw', async (req, res) => {
 
     const email = req.body.email // Genero la variable Email Que viene del post enviado en recoverpsw
@@ -66,7 +70,7 @@ router.post('/recoverpsw', async (req, res) => {
     if (user) {
        alert("Psw enviada a "+email)
        return ctrlemail.RecoverPswByemail(email,user.psw)
-       ,res.redirect('/login')
+       ,res.redirect('/')
 
     }else{
 
@@ -82,18 +86,17 @@ router.post('/login', async (req, res) => {
 
     // read username and password from request body
     const {username,password} = req.body
-
     const users = await crudSql.getAllUserSistem()
     const usersAdmin = await crudSql.getATrueAdmin()
 
     // filter user from the users array by username and password
     //Con bcryptjs.compareSync comparo la pass actual de la BBDD(haseadas) vs las pass que le paso por el req.body deshaseada
-    const user = users.find(u => { return u.username === username && bcryptjs.compareSync(password,u.password)===true });
-    const userAdmin = usersAdmin.find( u => { return u.username === username &&  bcryptjs.compareSync(password,u.password)===true });
+    const user = users.find(u => { return u.username === username && bcryptjs.compareSync(password,u.password)===true  });
+    const userAdmin = usersAdmin.find( u => { return u.username === username &&  bcryptjs.compareSync(password,u.password)===true  });
 
     if (user) {
         // generate an access token
-        const accessToken = jwt.sign({ username: user.username, role: user.role, psw: user.password }, accessTokenSecret, { expiresIn: '20m' });
+        const accessToken = jwt.sign({ username: user.username, role: user.role, email: user.email ,id : user.id }, accessTokenSecret, { expiresIn: '20m' });
         const refreshToken = jwt.sign({ username: user.username, role: user.role }, refreshTokenSecret);
 
         refreshTokens.push(refreshToken);
@@ -111,7 +114,7 @@ router.post('/login', async (req, res) => {
     } else  if (userAdmin) {
         console.log('Es Admin')
         // generate an access token
-        const accessToken = jwt.sign({ username: userAdmin.username, role: userAdmin.role }, accessTokenSecret, { expiresIn: '20m' });
+        const accessToken = jwt.sign({ username: userAdmin.username, role: userAdmin.role, email: user.email }, accessTokenSecret, { expiresIn: '20m' });
         const refreshToken = jwt.sign({ username: userAdmin.username, role: userAdmin.role }, refreshTokenSecret);
 
         refreshTokens.push(refreshToken);
