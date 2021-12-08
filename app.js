@@ -7,7 +7,7 @@ var logger = require('morgan');
 require('dotenv').config() // carga fichero variables de entorno
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+const bcryptjs= require('bcryptjs')
 var app = express();
 
 // view engine setup
