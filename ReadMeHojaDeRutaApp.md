@@ -13,7 +13,7 @@ En la funcion create  de Pool le paso la variable @insert, dentro hago un destru
     const {username,sname,email,pasw,curse,rol} = insert;
 
 Esta variable viene dada por el controlador Controllers/ctrlSwql y @insert es el objeto que recojo en el metodo post/signup cuando relleno el formulario.
-Por ultimo le paso los parametros a la funcion para hacer el inser en la BBDD, si el inser esta correcto aparecera el mensaje de insercion correcta y lo insertara en la BBDD
+Por ultimo le paso los parametros a la funcion para hacer el inser en la BBDD, si el insert esta correcto aparecera el mensaje de insercion correcta y lo insertara en la BBDD
 
 3--CONTROLLERS lo primero que hago es importar el modulo de MODELS/crudsql
  [*const crudSql=require('../models/crudSql')] 
@@ -23,7 +23,8 @@ return await crudSql.createEntry(insert)
 
 4--RUTES, aqui defino que la vista/ejecucion SingUp sera post y accedera a controlers, funcion dataentry (Creara el objeto @insert ) que asu vez se lo pasara a la funcion create () de MODELS/crudSql
 router.post('/signup',controllerSql.dataentry); 
-dataentry es la exportacion del modulo creado en CONTROLLERS/ctrlSwql 
+dataentry es la exportacion del modulo creado en CONTROLLERS/ctrlSwql.
+
 
 
 
