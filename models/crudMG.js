@@ -54,10 +54,8 @@ const getcurselike  = async (a) => {
     // del producto correspondiente
     let data;
     try{
-        if(1==1){
             data = await User.find(({name: { $regex: '.*' + a + '.*',$options:'i' } }), '-__v');
             console.log(data)
-        }
     }catch(err){
         console.log(err)
     }finally{
@@ -78,6 +76,6 @@ const entriesmg = {
     User
 }
 
-getcurselike("anGUlar");
+getcurselike("html");
 
 module.exports = entriesmg;
