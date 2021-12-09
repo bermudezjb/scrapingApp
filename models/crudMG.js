@@ -14,7 +14,10 @@ const objectSchema = {
         author: String,
         author2: String,
         duration: String,
-        created: Date
+        rating: String,
+        price: String,
+        img : String,
+        url : String
 
 };
 
@@ -25,13 +28,19 @@ const User = mongoose.model('User', ScrapSchemaMG);
 
 //HAGO EL CREATE 
 
+
+
+
 let scrap1 = {
     _id: new mongoose.Types.ObjectId(),
         name: "Angular + HTML",
         author: "jalid",
         author2: "Acdhi",
-        duration: "3 M",
-        created: Date.now()
+        duration: '3M',
+        rating: '*****',
+        price: '200$',
+        img : 'https://dev-res.thumbr.io/libraries/75/66/35/01/lib/1618990629233_2.jpg?size=230x115s&ext=jpg',
+        url : 'https://www.tutellus.com/tecnologia/desarrollo-web/creacion-de-api-rest-web-service-con-python-y-mysql-34804'
 };
 
 let insertScrap = new User (scrap1);
@@ -76,6 +85,6 @@ const entriesmg = {
     User
 }
 
-getcurselike("html");
+//getcurselike("html");
 
 module.exports = entriesmg;
