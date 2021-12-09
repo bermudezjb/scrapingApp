@@ -40,6 +40,11 @@ const favorites = (req, res) => {
 const profile = (req, res) => {
     res.render('profile', { title: 'Express' });
 }
+
+const search = (req, res) => {
+    res.render('search', { title: 'Express' });
+}
+
 const users = (req, res) => {
 
   checkAdmin(req.cookies.access_token) 
