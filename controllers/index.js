@@ -1,4 +1,21 @@
+const mongoose = require('../utils/mgBBDD')//Importo la conexion de la BBDD 
 let userinfo;
+const objectSchema = {
+    _id: mongoose.Schema.Types.ObjectId,
+        name: String,
+        author: String,
+        author2: String,
+        duration: String,
+        rating: String,
+        price: String,
+        img : String,
+        url : String
+
+};
+const ScrapSchemaMG = mongoose.Schema(objectSchema);
+
+const User = mongoose.model('User', ScrapSchemaMG);
+
 
 function checkAdmin (token) {
     var base64Url = token.split('.')[1];
@@ -69,7 +86,29 @@ const index = (req, res) => {
 const createCourse = (req, res) => {
     res.render('CreateCourse', { title: 'Express' });
 }
-
+const createCourseApi = (req, res) => {
+    console.log(req.body);
+    try{
+        new User ( {
+            _id: new mongoose.Types.ObjectId(),
+                name: req.body.name,
+                author: req.body.author,
+                duration: req.body.duration,
+                rating: req.body.rating,
+                price: req.body.price,
+                img : req.body.img,
+                url : req.body.url
+        }).save(function(err){
+            if (err) throw err;
+            console.log("Inserción correcta");
+            
+        });
+    } catch(err){
+        console.log(err)
+    } finally{
+        mongoose.disconnect();
+    }
+}
 
 const panelAdmin = (req, res) => {
     res.render('panelAdmin', { title: 'Express' });
@@ -86,5 +125,6 @@ module.exports  = {
     recoverpsw,
     index,
     panelAdmin,
-    createCourse
+    createCourse,
+    createCourseApi
 }

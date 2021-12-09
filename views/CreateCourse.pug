@@ -6,26 +6,34 @@ link(rel="stylesheet", href="./stylesheets/styleCreate.css")
 title Dashboard
 body 
     .container
-        form.small-form(action="/dashboard", method="post")
+        form.small-form(action="/createCourse", method="post")
             h1 Cursalia
             div.form
                 div.title Bienvenido Admin 
                 .subtitle Ingrese nuevo curso
                 .divf
-                    input#firstname.input(type='text' name='curso' placeholder='Nombre del curso')
+                    input#firstname.input(type='text' name='name' placeholder='Nombre del curso')
                     .cut.cut-short
                     label.placeholder(for='Nombre del curso') 
                 .divf
-                    input#psw.input(type='text'  name='Autor' placeholder='Autor del curso')
+                    input#psw.input(type='text'  name='author' placeholder='Autor del curso')
                     .cut.cut-short
                     label.placeholder(for='Autor del curso')
                 .divf
-                    input#firstname.input(type='text' name='Duracion' placeholder='Duracion')
+                    input#firstname.input(type='text' name='duration' placeholder='Duracion')
                     .cut.cut-short
-                    label.placeholder(for='Duracion del curso') 
+                    label.placeholder(for='Duracion del curso')
                 .divf
-                    input#email.input(type='text' name='precio' placeholder='Precio')
+                    input#rating.input(type='text' name='rating' placeholder='Rating')
                     .cut.cut-short
-                    label.placeholder(for='Url curso')                 
+                    label.placeholder(for='rating del curso')  
+                .divf
+                    input#email.input(type='text' name='price' placeholder='Precio')
+                    .cut.cut-short
+                    label.placeholder(for='Url curso')
+                .divf
+                    input#img.input(type='text' name='img' placeholder='Url de imagen')
+                    .cut.cut-short
+                    label.placeholder(for='Url de imagen')                                     
                 .divf
                     button.submit(type='text') Guardar

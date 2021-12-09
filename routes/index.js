@@ -7,8 +7,8 @@ let jwt = require('jsonwebtoken')
 const accessTokenSecret = 'somerandomaccesstoken';
 const refreshTokenSecret = 'somerandomstringforrefreshtoken';
 let refreshTokens = [];
-let authorization = require('../middleware/authorization')
-let authorizationAdmin = require('../middleware/authorizationAdmin')
+let authorization = require('../Middleware/Authorization')
+let authorizationAdmin = require('../Middleware/AuthorizationAdmin')
 let controllerSql = require('../controllers/ctrlSql')
 const crudSql=require('../models/crudSql')
 const ctrlemail = require('../controllers/ctrlemail')
@@ -43,7 +43,9 @@ router.get('/index',authorization,controller.index);
 
 router.get('/panelAdmin',controller.panelAdmin); 
 
-router.get('/createCourse',controller.createCourse); 
+router.get('/createCourse',controller.createCourse);
+
+router.post('/createCourse',controller.createCourseApi); 
 
 router.post('/users', controllerSql.updateDataUser);
 
