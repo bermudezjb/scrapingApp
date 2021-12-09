@@ -15,13 +15,13 @@ function checkAdmin (token) {
   };
   
 
-const {scrap} = require('../utils/scrap')
+// const {scrap} = require('../utils/scrap')
 
-const scrapper = async() =>{
-    const data = await scrap("https://www.tutellus.com/buscador/jquery/cursos")
-    return data
-}
-scrapper().then(dad=>console.log(dad))
+// const scrapper = async() =>{
+//     const data = await scrap("https://www.tutellus.com/buscador/jquery/cursos")
+//     return data
+// }
+// scrapper().then(dad=>console.log(dad))
 
 const landing = (req, res) => {
     res.render('index', { title: 'Express' });

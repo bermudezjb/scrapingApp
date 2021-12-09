@@ -14,6 +14,8 @@ const crudSql=require('../models/crudSql')
 const ctrlemail = require('../controllers/ctrlemail')
 const alert = require('alert'); 
 const envi=require('../models/crudSql')
+const search = require('../controllers/scrap')
+const scrap = require('../utils/scrap')
 
 
 /* GET home page. */
@@ -22,6 +24,18 @@ router.get('/', controller.landing);
 router.get('/signup', controller.signup);
 
 router.get('/login', controller.login);
+
+router.get('/:search', (req, res) => {
+    console.log(req.params.search)
+    scrap(`https://www.tutellus.com/buscador/${req.params.search}/cursos`).then(data=>
+    res.render('index', { 
+        data: data,
+        author: data[0].author,
+        duration: data[0].duration,
+        rating: data[0].rating,
+        price: data[0].Price
+    }));
+  })
 
 router.get('/recoverpsw', controller.recoverpsw);
 
