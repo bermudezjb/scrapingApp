@@ -1,0 +1,18 @@
+doctype html
+html
+head 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+link(rel="stylesheet", href="./stylesheets/stylesingUp.css")
+body 
+    .container
+        form.small-form(action="/recoverpsw", method="post")
+            h1 Cursalia
+            div.form
+                div.title Recuperar Contraseña 
+                .subtitle Datos
+                .divf
+                    input#lastname.input(type='text' placeholder='Email' name='email')
+                    .cut.cut-short
+                    label.placeholder(for='email') 
+                    button.submit(type='text') Recuperar
+                    <a href="./login">Ir a login</a>

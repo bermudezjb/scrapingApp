@@ -16,6 +16,17 @@ body
             .cut.cut-short
             label.placeholder(for='curso') 
             button.submit(type='text') Buscar curso
+            div.labels
+                ul
+                each val in data
+                    li= val.name
+                    li= val.author+val.author2
+                    li= val.duration
+                    li= val.rating
+                    li= val.price
+                    li
+                      img(src=val.img)
+                    li= val.url
             .mobile-container
               .topnav
                 a.active(href='#home') NAV

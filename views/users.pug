@@ -1,0 +1,21 @@
+doctype html
+html
+head 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+link(rel="stylesheet", href="./stylesheets/stylesingUp.css")
+body 
+    form.small-form(action="/users", method="Post")
+            div.form
+                div.title Mi perfil 
+                .subtitle mis datos Actuales 
+                .divf
+                    input#firstname.input(type='text' name='updateusername' placeholder = username required)
+                    label.placeholder(for='firstname')  
+                .divf
+                    input#email.input(type='email' name='updateemail' placeholder= email required)
+                    label.placeholder(for='Email')
+                    input#id.input(type='email' name='id' value= id readonly )
+                .div
+                    button.submit(type='text') Actualizar
+                form.small-form(action="/index", method="Get")
+                    button.submit(type='text') Descartar
