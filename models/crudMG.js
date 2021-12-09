@@ -33,9 +33,9 @@ const User = mongoose.model('User', ScrapSchemaMG);
 
 let scrap1 = {
     _id: new mongoose.Types.ObjectId(),
-        name: "Angular + HTML",
-        author: "jalid",
-        author2: "Acdhi",
+        name: "Mongo + Angular",
+        author: "Alejandro",
+        author2: "Matin",
         duration: '3M',
         rating: '*****',
         price: '200$',
@@ -48,7 +48,7 @@ let insertScrap = new User (scrap1);
 insertScrap.save(function(err){
     if (err) throw err;
     console.log("Inserción correcta");
-    mongoose.disconnect();
+   // mongoose.disconnect();
 });
 
 
@@ -63,13 +63,13 @@ const getcurselike  = async (a) => {
     // del producto correspondiente
     let data;
     try{
-            data = await User.find(({name: { $regex: '.*' + a + '.*',$options:'i' } }), '-__v');
-            console.log(data)
+            data = await User.find(({name: { $regex: '.*' + a + '.*',$options:'i' } }), '-__v').limit(2);
+           return data
     }catch(err){
         console.log(err)
     }finally{
 
-        mongoose.disconnect();
+        //mongoose.disconnect();
         console.log("conexion Cerrada")
     }
 }

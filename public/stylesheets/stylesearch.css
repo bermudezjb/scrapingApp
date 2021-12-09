@@ -126,3 +126,7 @@ body {
     background-color: rgb(180, 18, 153);
   }
   
+
+  #listaScrapt {
+	list-style:none;
+  }

@@ -11,12 +11,13 @@ let authorization = require('../middleware/authorization')
 let authorizationAdmin = require('../middleware/authorizationAdmin')
 let controllerSql = require('../controllers/ctrlSql')
 const crudSql=require('../models/crudSql')
+const crudMG=require('../models/crudMG')
 const ctrlemail = require('../controllers/ctrlemail')
 const alert = require('alert'); 
 const envi=require('../models/crudSql')
 const search = require('../controllers/scrap')
 const scrap = require('../utils/scrap')
-
+const mongoose = require('../utils/mgBBDD')//Importo la conexion de la BBDD 
 
 /* GET home page. */
 router.get('/', controller.landing);
@@ -48,14 +49,18 @@ router.get('/createCourse',controller.createCourse);
 router.post('/users', controllerSql.updateDataUser);
 
 
-router.get('/search', (req, res) => {
-    console.log("Entra Scrapt")
-    console.log(req.query.curso)
-    scrap(`https://www.tutellus.com/buscador/${req.query.curso}/cursos`).then(data=> {
-    //res.json(data)
+router.get('/search', async (req, res) => {
+
+  
+ const dataadmin= await crudMG.getcurselike(req.query.curso)
+ 
+ const datascrap = await scrap(`https://www.tutellus.com/buscador/${req.query.curso}/cursos`)
+
+ const data= [...dataadmin,...datascrap.slice(1, 2)]
+
     res.render('search', { 
-        data: data
-    })});
+         data
+    });
    
   })
 
