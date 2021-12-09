@@ -35,9 +35,9 @@ const extractProductData = async (url,browser) => {
         // Nivel
         // courseData['level'] = await page.$eval('', level=>level.innerText)
         // Precio
-        courseData['Price'] = await page.$eval('div.price.hide-phone > strong > span:nth-child(1)', price=>price.innerText)
+        courseData['price'] = await page.$eval('div.price.hide-phone > strong > span:nth-child(1)', price=>price.innerText)
         // Image
-        courseData['Img'] = await page.$eval('#imagevideo > img', img=>img.src)
+        courseData['img'] = await page.$eval('#imagevideo > img', img=>img.src)
 
         return courseData // Devuelve los datos de un producto
     }
