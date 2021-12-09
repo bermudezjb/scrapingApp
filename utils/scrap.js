@@ -103,7 +103,7 @@ const scrap = async (url) => {
     }
 }
 
-exports.scrap = scrap;
+module.exports = scrap;
 
 /********** DESCOMENTAR PARA PROBAR *********/
 //scrap("https://www.tutellus.com/buscador/jquery/cursos").then(data =>console.log(data))
