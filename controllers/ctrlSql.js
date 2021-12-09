@@ -16,10 +16,6 @@ const dataentry = async (req,res) => {
 
 const updateDataUser = async (req,res) => { 
     const datauser={
-        // username: 'Jalid Update',
-        // email: 'jalid.update@gmail.com',
-        // id : 28
-
         username: req.body.updateusername,
         email: req.body.updateemail,
         id : req.body.id
