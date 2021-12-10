@@ -18,9 +18,9 @@ var transporter = nodemailer.createTransport({
 const RecoverPswByemail = async (email,psw,req,res) => { 
 
      mailOptions = {
-        from: '"Cursalia"', // sender address
+        from: 'Cursalia', // sender address
         to: email, // list of receivers
-        subject: 'PswRecovery', // Subject line
+        subject: '#DevYU PswRecovery', // Subject line
         //text: 'Esta es su contraseña', // plaintext body
         html: '<br> Esta es su @pass :<br><b> '+psw+'</b>,<br> por favor no la comparta' // html body
         };

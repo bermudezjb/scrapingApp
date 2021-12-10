@@ -16,7 +16,7 @@ const dataentry = async (req,res) => {
     } catch (err){
         console.log(err)
     } finally{
-        res.redirect('/')
+        res.redirect('/login')
     }
 }
 
