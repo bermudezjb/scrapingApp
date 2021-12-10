@@ -1,16 +1,23 @@
 const crudSql=require('../models/crudSql')
 const bcryptjs= require('bcryptjs')
 
-const dataentry = async (req,res) => { 
-    const insert={
-        username: req.body.firstname,
-        sname : '',
-        email: req.body.email,
-        pasw: await bcryptjs.hash(req.body.password,8),
-        curse : '',
-        rol : 'user'
-    } 
-    return await crudSql.createEntry(insert)
+const dataentry = async (req,res) => {
+    try{
+        const insert={
+            username: req.body.firstname,
+            sname : '',
+            email: req.body.email,
+            pasw: await bcryptjs.hash(req.body.password,8),
+            curse : '',
+            rol : 'user'
+        } 
+        return await crudSql.createEntry(insert)
+
+    } catch (err){
+        console.log(err)
+    } finally{
+        res.redirect('/')
+    }
 }
 
 
