@@ -188,4 +188,20 @@ justify-content: center;
     margin-top: 10%;
  
   }
+.labelCourse{
+  border-bottom: 1px black solid;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  background-color: rgba(175, 238, 238, 0.2);
+  padding: 0.5rem;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.labelCourse p{
+  margin: 0.5rem;
+}
+.labelCourse img{
+  border-radius: 5px;
+}
   
