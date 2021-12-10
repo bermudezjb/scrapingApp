@@ -134,7 +134,7 @@ router.post('/login', async (req, res) => {
     } else  if (userAdmin) {
         console.log('Es Admin')
         // generate an access token
-        const accessToken = jwt.sign({ username: userAdmin.username, role: userAdmin.role, email: user.email }, accessTokenSecret, { expiresIn: '20m' });
+        const accessToken = jwt.sign({ username: userAdmin.username, role: userAdmin.role, email: userAdmin.email,id : userAdmin.id }, accessTokenSecret, { expiresIn: '20m' });
         const refreshToken = jwt.sign({ username: userAdmin.username, role: userAdmin.role }, refreshTokenSecret);
 
         refreshTokens.push(refreshToken);
@@ -142,9 +142,10 @@ router.post('/login', async (req, res) => {
                 .cookie("access_token", accessToken, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === "production",
-                })
-                .status(200)
-                .json({ message: "Logged in successfully ADMIN 😊 👌" });
+                }),
+                res.redirect('/panelAdmin')
+                // .status(200)
+                // .json({ message: "Logged in successfully ADMIN 😊 👌" });
                 
 
     }else {

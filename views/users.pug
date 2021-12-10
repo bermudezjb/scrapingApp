@@ -4,8 +4,8 @@ head
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 link(rel="stylesheet", href="./stylesheets/stylesingUp.css")
 body 
-    form.small-form(action="/users", method="Post")
-            div.form
+    div.form
+        form.small-form(action="/users", method="Post")
                 div.title Mi perfil 
                 .subtitle mis datos Actuales 
                 .divf
@@ -17,5 +17,5 @@ body
                     input#id.input(type='email' name='id' value= id readonly )
                 .div
                     button.submit(type='text') Actualizar
-                form.small-form(action="/index", method="Get")
+        form.small-form(action="/", method="get")                
                     button.submit(type='text') Descartar

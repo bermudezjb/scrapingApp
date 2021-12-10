@@ -6,24 +6,20 @@ link(rel="stylesheet", href="./stylesheets/stylesingUp.css")
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 body 
 .mobile-container
-  .topnav
-    a.active(href='#home') #DevYU
-    #myLinks
-      a(href='#news') News
-      a(href='#contact') Contact
-      a(href='#about') About
-    a.icon(href='javascript:void(0);' onclick='myFunction()')
-      i.fa.fa-bars
     .container
-    form.small-form(action="/login", method="post")
             div.form
-                div.title Welcome 
+                div.title Welcome #DevIY
                 .subtitle Admin
                 .divf
+                  a(href='/Dashboard')
                    button.submit(type='text') Dashboard
                 .divf
-                    button.submit(type='text') Create Course                                    
-                    button.submit(type='text') Edit Profile
+                 a(href='/createCourse')
+                  button.submit(type='text') Create Course   
+                 a(href='/users')                                 
+                  button.submit(type='text') Edit Profile
+                 a(href='/')
+                  button.submit(type='text') Home
                     
 
                     

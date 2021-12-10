@@ -1,23 +1,14 @@
 const mongoose = require('../utils/mgBBDD')//Importo la conexion de la BBDD 
 let userinfo;
-const objectSchema = {
-    _id: mongoose.Schema.Types.ObjectId,
-        name: String,
-        author: String,
-        author2: String,
-        duration: String,
-        rating: String,
-        price: String,
-        img : String,
-        url : String
 
-};
-const ScrapSchemaMG = mongoose.Schema(objectSchema);
+const {User} = require('../models/crudMG')
 
-const User = mongoose.model('User', ScrapSchemaMG);
+// const ScrapSchemaMG = mongoose.Schema(Schema.objectSchema);
+
+// const User2 = mongoose.model('User', ScrapSchemaMG);
 
 
-function checkAdmin (token) {
+function tokeninfo (token) {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
@@ -64,8 +55,8 @@ const search = (req, res) => {
 
 const users = (req, res) => {
 
-  checkAdmin(req.cookies.access_token) 
-  console.log(checkAdmin(req.cookies.access_token))
+    tokeninfo(req.cookies.access_token) 
+  console.log(tokeninfo(req.cookies.access_token))
   console.log(userinfo.username)
 
     res.render('users',{username : userinfo.username, email: userinfo.email, id: userinfo.id  } );
@@ -101,12 +92,12 @@ const createCourseApi = (req, res) => {
         }).save(function(err){
             if (err) throw err;
             console.log("Inserción correcta");
-            
         });
+        res.redirect('/')
     } catch(err){
         console.log(err)
     } finally{
-        mongoose.disconnect();
+        //mongoose.disconnect();
     }
 }
 

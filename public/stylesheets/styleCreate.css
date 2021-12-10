@@ -17,9 +17,10 @@ body {
   background-color: #15172b;
   border-radius: 20px;
   box-sizing: border-box;
-  height: 500px;
+  height: 650px;
   padding: 20px;
   width: 320px;
+  justify-content: center;
 }
 
 .title {

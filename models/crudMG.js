@@ -8,39 +8,38 @@ app.use(express.json())
 //AQUI REALIZARE LOS CRUD INICIALES DE MONGO 
 //const url = "mongodb+srv://rooot:root@scrapapp.sloal.mongodb.net/ScrapColection";
 
-// const objectSchema = {
-//     _id: mongoose.Schema.Types.ObjectId,
-//         name: String,
-//         author: String,
-//         author2: String,
-//         duration: String,
-//         rating: String,
-//         price: String,
-//         img : String,
-//         url : String
+const objectSchema = {
+    _id: mongoose.Schema.Types.ObjectId,
+        name: String,
+        author: String,
+        author2: String,
+        duration: String,
+        rating: String,
+        price: String,
+        img : String,
+        url : String
 
-// };
+};
 
 // // Crear el esquema
-// const ScrapSchemaMG = mongoose.Schema(objectSchema);
+const ScrapSchemaMG = mongoose.Schema(objectSchema);
 
-// const User = mongoose.model('User', ScrapSchemaMG);
-
-//HAGO EL CREATE 
+ const User = mongoose.model('User2', ScrapSchemaMG);
 
 
 
 
-// let scrap1 = {
-//     _id: new mongoose.Types.ObjectId(),
-//         name: "Mongo + Angular",
-//         author: "Alejandro",
-//         author2: "Matin",
-//         duration: '3M',
-//         rating: '*****',
-//         price: '200$',
-//         img : 'https://dev-res.thumbr.io/libraries/75/66/35/01/lib/1618990629233_2.jpg?size=230x115s&ext=jpg',
-//         url : 'https://www.tutellus.com/tecnologia/desarrollo-web/creacion-de-api-rest-web-service-con-python-y-mysql-34804'
+
+// // let scrap1 = {
+// //     _id: new mongoose.Types.ObjectId(),
+// //         name: "Mongo + Angular",
+// //         author: "Alejandro",
+// //         author2: "Matin",
+// //         duration: '3M',
+// //         rating: '*****',
+// //         price: '200$',
+// //         img : 'https://dev-res.thumbr.io/libraries/75/66/35/01/lib/1618990629233_2.jpg?size=230x115s&ext=jpg',
+// //         url : 'https://www.tutellus.com/tecnologia/desarrollo-web/creacion-de-api-rest-web-service-con-python-y-mysql-34804'
 // };
 
 // let insertScrap = new User (scrap1);
@@ -81,7 +80,8 @@ const getcurselike  = async (a) => {
 //Exporto el modulo para utilizar en otros scripts.
 
 const entriesmg = {
-    getcurselike
+    getcurselike,
+    User
 }
 
 //getcurselike("html");
