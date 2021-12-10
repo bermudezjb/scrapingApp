@@ -8,23 +8,23 @@ app.use(express.json())
 //AQUI REALIZARE LOS CRUD INICIALES DE MONGO 
 //const url = "mongodb+srv://rooot:root@scrapapp.sloal.mongodb.net/ScrapColection";
 
-const objectSchema = {
-    _id: mongoose.Schema.Types.ObjectId,
-        name: String,
-        author: String,
-        author2: String,
-        duration: String,
-        rating: String,
-        price: String,
-        img : String,
-        url : String
+// const objectSchema = {
+//     _id: mongoose.Schema.Types.ObjectId,
+//         name: String,
+//         author: String,
+//         author2: String,
+//         duration: String,
+//         rating: String,
+//         price: String,
+//         img : String,
+//         url : String
 
-};
+// };
 
-// Crear el esquema
-const ScrapSchemaMG = mongoose.Schema(objectSchema);
+// // Crear el esquema
+// const ScrapSchemaMG = mongoose.Schema(objectSchema);
 
-const User = mongoose.model('User', ScrapSchemaMG);
+// const User = mongoose.model('User', ScrapSchemaMG);
 
 //HAGO EL CREATE 
 
@@ -81,8 +81,7 @@ const getcurselike  = async (a) => {
 //Exporto el modulo para utilizar en otros scripts.
 
 const entriesmg = {
-    getcurselike,
-    User
+    getcurselike
 }
 
 //getcurselike("html");
