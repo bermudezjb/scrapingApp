@@ -42,7 +42,7 @@ router.post('/signup',controllerSql.dataentry);
 
 router.get('/index',authorization,controller.index); 
 
-router.get('/panelAdmin',controller.panelAdmin); 
+router.get('/panelAdmin',authorizationAdmin, controller.panelAdmin); 
 
 router.get('/createCourse',controller.createCourse);
 

@@ -20,6 +20,7 @@ body
                 each val in data
                   .labelCourse
                     .info#listaScrapt
+                      p= '🤍'
                       p= val.name
                       p #{val.author} #{val.author2}
                       p= val.duration
@@ -34,6 +35,7 @@ body
                   a(href='/index') Home
                   a(href='/favorites') Fav
                   a(href='/users') MiPerfil
+                  a(href='/panelAdmin') Admin
                 a.icon(href='javascript:void(0);' onclick='myFunction()')
                   i.fa.fa-bars nav
                     
