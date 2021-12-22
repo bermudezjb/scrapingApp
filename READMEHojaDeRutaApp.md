@@ -1,0 +1,88 @@
+Repaso estructurado de carpetas + metodo Crud + inser de usuarios en la BBDD SQL 
+
+RESTRUCTUCTURADO DE CARPETAS : :
+Hemos decidido que el orden de aplicacion será UTILS/MODELS/CONTROLERS/ROUTES/: 
+
+Pasos seguidos : 
+1--UTILS las conexiones a las BBDD de MongoDb y Poolstgrade.
+1.1--Aqui creamos las conexiones y exportamos los modulos de cada conexion para utilizar en otras rutas/ficheros
+
+2--MODELS aqui hemos generado los modelos de CRUD (CREATE;READ;UPADATE;DELETE) de las BBDD MongoDB y Pool respectivamente. Dentro hemos generado de consulta e insercion y como en el paso anterior exportamos el modulo para utilizar estas funciones en otras rutas/ficheros.
+En la funcion create  de Pool le paso la variable @insert, dentro hago un destructuring : 
+
+    const {username,sname,email,pasw,curse,rol} = insert;
+
+Esta variable viene dada por el controlador Controllers/ctrlSwql y @insert es el objeto que recojo en el metodo post/signup cuando relleno el formulario.
+Por ultimo le paso los parametros a la funcion para hacer el inser en la BBDD, si el inser esta correcto aparecera el mensaje de insercion correcta y lo insertara en la BBDD
+
+3--CONTROLLERS lo primero que hago es importar el modulo de MODELS/crudsql
+ [*const crudSql=require('../models/crudSql')] 
+ para interconectar los ficheros. Aqui creo la funcion Dataentry que es async y que creara el
+ objeto @insert con los parametros recogios del formulario singUp y se lo hara llegar a modelo[funcion de create()], esto lo realiza con :
+return await crudSql.createEntry(insert)
+
+4--RUTES, aqui defino que la vista/ejecucion SingUp sera post y accedera a controlers, funcion dataentry (Creara el objeto @insert ) que asu vez se lo pasara a la funcion create () de MODELS/crudSql
+router.post('/signup',controllerSql.dataentry); 
+<<<<<<< HEAD
+dataentry es la exportacion del modulo creado en CONTROLLERS/ctrlSwql 
+
+
+
+function(req,res,next) {
+/*Haseo de la contraseña */
+const BCRYPT_SALT_ROUNDS = 12 ;
+const usermail= req.body.email;
+const password= req.body.password;
+
+bcrypt.hash(password, BCRYPT_SALT_ROUNDS)
+    .then(function(hashePassword) {
+
+return usersDB.saveUser(usermail,hashePassword);
+    })
+    .then(function() {
+        res.send();
+    })
+    .catch(function(error){
+    console.log("error Saving User")
+    console.log(error)
+    next();
+    })
+
+
+
+
+const nodemailer = require('nodemailer');
+
+// create reusable transporter object using the default SMTP transport
+var transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        host : "smtp.gmail.com",
+        port : 587,
+        scure : false,
+        debug: true,
+        auth: {
+            user: 'jalid.acdhi@gmail.com',
+            pass: 'Ja123456'
+        } );
+
+// setup e-mail data with unicode symbols
+var mailOptions = {
+    from: '"Fred Foo ?" <foo@blurdybloop.com>', // sender address
+    to: 'bar@blurdybloop.com, baz@blurdybloop.com', // list of receivers
+    subject: 'Hello ✔', // Subject line
+    text: 'Hello world ?', // plaintext body
+    html: '<b>Hello world ?</b>' // html body
+};
+
+// send mail with defined transport object
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        return console.log(error);
+    }
+    console.log('Message sent: ' + info.response);
+});
+
+transporter.sendMail(mailOptions)
+=======
+dataentry es la exportacion del modulo creado en CONTROLLERS/ctrlSwql
+>>>>>>> 2c45d6df4a1b673740e9088ce20e73a5a9577ff6

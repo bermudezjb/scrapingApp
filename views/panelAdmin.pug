@@ -1,0 +1,34 @@
+doctype html
+html
+head 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+link(rel="stylesheet", href="./stylesheets/stylesingUp.css")
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+body 
+.mobile-container
+    .container
+            div.form
+                div.title Welcome #DevIY
+                .subtitle Admin
+                .divf
+                  a(href='/Dashboard')
+                   button.submit(type='text') Dashboard
+                .divf
+                 a(href='/createCourse')
+                  button.submit(type='text') Create Course   
+                 a(href='/users')                                 
+                  button.submit(type='text') Edit Profile
+                 a(href='/')
+                  button.submit(type='text') Home
+                    
+
+                    
+script.
+  function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+  x.style.display = "none";
+  } else {
+  x.style.display = "block";
+  }
+  }

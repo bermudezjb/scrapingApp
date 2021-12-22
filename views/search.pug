@@ -16,11 +16,23 @@ body
             .cut.cut-short
             label.placeholder(for='curso') 
             button.submit(type='text') Buscar curso
+            .courses
+                each val in data
+                  .labelCourse
+                    .info#listaScrapt
+                      p= '🤍'
+                      p= val.name
+                      p #{val.author} #{val.author2}
+                      p= val.duration
+                      p= val.rating
+                      p= val.price
+                    .img
+                        img(src=val.img width=120 height=67)
             .mobile-container
               .topnav
                 a.active(href='#home') NAV
                 #myLinks
-                  a(href='/') Home
+                  a(href='/index') Home
                   a(href='/favorites') Fav
                   a(href='/users') MiPerfil
                   a(href='/panelAdmin') Admin
